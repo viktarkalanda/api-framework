@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>target/log/log.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>target/log/archive/log%i.log</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator class="utilities.logging.ThreadIdBasedDiscriminator"/>
+        <sift>
+            <appender class="ch.qos.logback.core.FileAppender">
+                <file>target/log/logfile_${threadId}.txt</file>
+                <append>false</append>
+                <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                    <charset>UTF-8</charset>
+                    <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p - %m%n</pattern>
+                </encoder>
+                <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                    <level>INFO</level>
+                </filter>
+            </appender>
+        </sift>
+    </appender>
+    <root level="DEBUG">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="SIFT"/>
+    </root>
+</configuration>

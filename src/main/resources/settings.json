@@ -1,0 +1,7 @@
+{
+  "settings": {
+    "baseUrl": "http://3.68.165.45",
+    "editor": "supervisor",
+    "data.provider.thread.count": 1
+  }
+}

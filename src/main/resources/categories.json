@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Ignored tests",
+    "matchedStatuses": [
+      "skipped"
+    ]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": [
+      "broken"
+    ],
+    "messageRegex": ".*PMException"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "messageRegex": ".*AssertionError"
+  },
+  {
+    "name": "Network issues",
+    "matchedStatuses": [
+      "broken",
+      "failed"
+    ],
+    "messageRegex": "^((?!PMException).)*$"
+  },
+  {
+    "name": "Passed",
+    "matchedStatuses": [
+      "passed"
+    ]
+  }
+]

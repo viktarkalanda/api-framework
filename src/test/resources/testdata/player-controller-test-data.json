@@ -1,0 +1,66 @@
+{
+  "createPlayerPositiveTest": {
+    "age": 25,
+    "gender": "male",
+    "login": "example",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerAgeValidation": {
+    "age": 15,
+    "gender": "male",
+    "login": "example",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerRoleValidation": {
+    "age": 25,
+    "gender": "male",
+    "login": "example",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerValidRoles": {
+    "age": 25,
+    "gender": "male",
+    "login": "example",
+    "password": "password123",
+    "role": "manager",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerUniqueLogin": {
+    "age": 25,
+    "gender": "male",
+    "login": "existingUser",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerUniqueScreenName": {
+    "age": 25,
+    "gender": "male",
+    "login": "example",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerPasswordValidation": {
+    "age": 25,
+    "gender": "male",
+    "login": "example",
+    "password": "pass123",
+    "role": "user",
+    "screenName": "TestUser"
+  },
+  "testCreatePlayerGenderValidation": {
+    "age": 25,
+    "gender": "other",
+    "login": "example",
+    "password": "password123",
+    "role": "user",
+    "screenName": "TestUser"
+  }
+}
