@@ -11,6 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <data.provider.thread.count>1</data.provider.thread.count>
+        <aspectj.version>1.9.6</aspectj.version>
+        <testsuite>playercontroller</testsuite>
     </properties>
 
     <dependencies>
@@ -72,7 +74,6 @@
         </dependency>
 
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -90,8 +91,8 @@
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
             </plugin>
-        </plugins>
 
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -109,13 +110,28 @@
                     <version>3.0.0-M5</version>
                     <configuration>
                         <testFailureIgnore>true</testFailureIgnore>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        </argLine>
                         <properties>
                             <property>
                                 <name>dataproviderthreadcount</name>
                                 <value>${data.provider.thread.count}</value>
                             </property>
                         </properties>
+
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/suites/${testsuite}.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>

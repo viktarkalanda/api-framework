@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Player Controller test suite" verbose="2" parallel="methods" thread-count="3">
+    <test name="Player Controller test">
+        <classes>
+            <class name="tests.playercontroller.PlayerCreationTests"/>
+        </classes>
+    </test>
+</suite>
