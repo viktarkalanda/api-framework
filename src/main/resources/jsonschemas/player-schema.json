@@ -2,55 +2,37 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "age": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "gender": {
+      "type": "string"
+    },
     "id": {
-      "type": "integer"
+      "type": "integer",
+      "format": "int64"
     },
     "login": {
       "type": "string"
     },
     "password": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "screenName": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "gender": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "male",
-        "female"
-      ]
-    },
-    "age": {
-      "type": [
-        "integer",
-        "null"
-      ],
-      "minimum": 16,
-      "maximum": 60
+      "type": "string"
     },
     "role": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "admin",
-        "user"
-      ]
+      "type": "string"
+    },
+    "screenName": {
+      "type": "string"
     }
   },
   "required": [
+    "age",
+    "gender",
     "id",
-    "login"
+    "login",
+    "password",
+    "role",
+    "screenName"
   ]
 }
