@@ -18,7 +18,7 @@ public final class ResponseSteps {
 
     @Step("Check that response has correct JSON schema")
     public static void checkJsonSchema(Response response, String pathToSchema) {
-        JsonSchemaValidator.matchesJsonSchemaInClasspath(pathToSchema).matches(response);
+        response.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(pathToSchema));
     }
 
 }
